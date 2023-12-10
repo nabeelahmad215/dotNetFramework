@@ -19,7 +19,7 @@ namespace dotNetFramework
 
 
                 con.Open();
-                string queryUser = "SELECT full_name FROM tblLoginData";
+                string queryUser = "SELECT full_name FROM tblLoginData WHERE username ='"+ Session["username"] +"'";
                 SqlCommand cmdUser = new SqlCommand(queryUser, con);
                 string strUsrNm = Convert.ToString(cmdUser.ExecuteScalar());
 
