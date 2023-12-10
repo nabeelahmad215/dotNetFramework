@@ -16,10 +16,16 @@ namespace dotNetFramework
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (con != null) {
-                
-                lblMsg.Text = "connection established";
+            if (con != null)
+            {
+
+                lblMsg.Text = "connection failed";
             }
+            else if(con == null)
+            {
+                lblMsg.Text = "Passed";
+            }
+
         }
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ToString());
 
@@ -34,13 +40,13 @@ namespace dotNetFramework
             {
                 string user = username.Text;
                 string pass = password.Text;
-                
 
-                con.Open();
+
+
                 //string queryUser = "SELECT full_name FROM tblLoginData WHERE username='" + user + "'";
                 //SqlCommand cmdUser = new SqlCommand(queryUser, con);
                 //string strUsrNm = Convert.ToString(cmdUser.ExecuteScalar());
-
+                con.Open();
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "SELECT * FROM tblLoginData WHERE username='" + user + "' AND password='" + pass + "'";
@@ -74,8 +80,20 @@ namespace dotNetFramework
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                Response.Write(ex.Message); 
             }
         }
     }
 }
+//if (imetxt.text == "")
+//{
+//    messagebox.show("please enter a valid user name!");
+//    imetxt.focus();
+//    return;
+//}
+//else if (passtxt.text == "")
+//{
+//    messagebox.show("please enter a valid password!");
+//    passtxt.focus();
+//    return;
+//}
