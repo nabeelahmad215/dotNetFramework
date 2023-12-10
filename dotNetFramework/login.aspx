@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,7 +14,7 @@
             <label>Password</label><br />
             <asp:TextBox ID="password" TextMode="Password" runat="server" /><br /><br />
             <asp:Button ID="btn" runat="server" type="button" Text="Sign In" Width="167px" OnClick="btn_Click" /><br /><br />
-            <%--<asp:Label ID="lblMsg" runat="server" Text="" /><br />--%>
+            <asp:Label ID="lblMsg" runat="server" Text="" /><br />
         </div>
     </form>
 </body>
